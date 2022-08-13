@@ -22,7 +22,7 @@ class NotificationsController: UIViewController {
 // MARK: - HELPERS
 extension NotificationsController{
     private func setup(){
-        
+        navigationItem.title = "Notifications"
     }
     private func layout(){
         

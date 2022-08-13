@@ -21,7 +21,7 @@ class ConversationsController: UIViewController {
 // MARK: - HELPERS
 extension ConversationsController{
     private func setup(){
-        
+        navigationItem.title = "Messages"
     }
     private func layout(){
         

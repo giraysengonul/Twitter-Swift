@@ -21,6 +21,9 @@ class FeedController: UIViewController {
 // MARK: - HELPERS
 extension FeedController{
     private func setup(){
+        let imageView = UIImageView(image: UIImage(named: "twitter_logo_blue"))
+        imageView.contentMode = .scaleAspectFit
+        navigationItem.titleView = imageView
         
     }
     private func layout(){

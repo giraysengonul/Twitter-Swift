@@ -21,7 +21,7 @@ class ExploreController: UIViewController {
 // MARK: - HELPERS
 extension ExploreController{
     private func setup(){
-        
+        navigationItem.title = "Explore"
     }
     private func layout(){
         
