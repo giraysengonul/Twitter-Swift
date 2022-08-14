@@ -34,6 +34,25 @@ class LoginController: UIViewController {
         let textField = Utilities().textField(withPlaceholder: "Password", withSecurity: true)
         return textField
     }()
+    private let loginButton :UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Log In", for: .normal)
+        button.setTitleColor(UIColor.twitterColor, for: .normal)
+        button.backgroundColor = .white
+        button.layer.cornerRadius = 10
+        button.titleLabel?.font = UIFont.preferredFont(forTextStyle: .title2)
+        button.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
+        button.clipsToBounds = true
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        return button
+    }()
+    private let dontHaveAccountButton : UIButton = {
+        let button = Utilities().attributedButton("Don't have an account", " Sign Up")
+        button.addTarget(self, action: #selector(handleShowSignUp), for: .touchUpInside)
+        return button
+    }()
+    
     // MARK: - LIFECYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,9 +71,10 @@ extension LoginController{
         view.addSubview(logoImageView)
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
         //stackView (email and password TextField) Setup
-        let stackView = UIStackView(arrangedSubviews: [emailContainerView, passwordContainerView])
+        let stackView = UIStackView(arrangedSubviews: [emailContainerView, passwordContainerView,loginButton])
         stackView.axis = .vertical
-        stackView.spacing = 8
+        stackView.spacing = 20
+        stackView.distribution = .fillEqually
         view.addSubview(stackView)
         stackView.translatesAutoresizingMaskIntoConstraints = false
         //stackView Layout
@@ -63,7 +83,9 @@ extension LoginController{
             stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor,constant: 10),
             stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor,constant: -10)
         ])
-        
+        //dontHaveAccountButton Setup
+        view.addSubview(dontHaveAccountButton)
+        dontHaveAccountButton.translatesAutoresizingMaskIntoConstraints = false
     }
     private func layout(){
         //logoImageView Layout
@@ -74,6 +96,21 @@ extension LoginController{
             logoImageView.heightAnchor.constraint(equalToConstant: 150)
             
         ])
+        //dontHaveAccountButton Layout
+        NSLayoutConstraint.activate([
+            dontHaveAccountButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            dontHaveAccountButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16)
+        ])
         
     }
 }
+// MARK: - ACTIONS
+extension LoginController{
+    @objc func handleLogin(){
+        print("login")
+    }
+    @objc func handleShowSignUp(){
+        print("show sign up")
+    }
+}
+
