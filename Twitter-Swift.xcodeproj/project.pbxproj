@@ -17,6 +17,7 @@
 		C4127E0A28A7CA7C00535A9B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4127E0828A7CA7C00535A9B /* LaunchScreen.storyboard */; };
 		C495C3BE28A908E0004997D4 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C495C3BD28A908E0004997D4 /* LoginController.swift */; };
 		C495C3C028A9095A004997D4 /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C495C3BF28A9095A004997D4 /* RegistrationController.swift */; };
+		C495C3C228A9139A004997D4 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C495C3C128A9139A004997D4 /* Utilities.swift */; };
 		C4BEDA9328A8000500FD254A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BEDA9228A8000500FD254A /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		C4127E0B28A7CA7C00535A9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C495C3BD28A908E0004997D4 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		C495C3BF28A9095A004997D4 /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
+		C495C3C128A9139A004997D4 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		C4BEDA9228A8000500FD254A /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -51,6 +53,7 @@
 			isa = PBXGroup;
 			children = (
 				C4BEDA9228A8000500FD254A /* Extensions.swift */,
+				C495C3C128A9139A004997D4 /* Utilities.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -224,6 +227,7 @@
 				C40C508D28A7F3EE00886965 /* ConversationsController.swift in Sources */,
 				C495C3BE28A908E0004997D4 /* LoginController.swift in Sources */,
 				C40C508528A7F25100886965 /* MainTabController.swift in Sources */,
+				C495C3C228A9139A004997D4 /* Utilities.swift in Sources */,
 				C4BEDA9328A8000500FD254A /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
