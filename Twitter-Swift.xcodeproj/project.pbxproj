@@ -15,6 +15,8 @@
 		C4127DFE28A7CA7A00535A9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4127DFD28A7CA7A00535A9B /* AppDelegate.swift */; };
 		C4127E0728A7CA7C00535A9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4127E0628A7CA7C00535A9B /* Assets.xcassets */; };
 		C4127E0A28A7CA7C00535A9B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4127E0828A7CA7C00535A9B /* LaunchScreen.storyboard */; };
+		C495C3BE28A908E0004997D4 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C495C3BD28A908E0004997D4 /* LoginController.swift */; };
+		C495C3C028A9095A004997D4 /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C495C3BF28A9095A004997D4 /* RegistrationController.swift */; };
 		C4BEDA9328A8000500FD254A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BEDA9228A8000500FD254A /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +31,8 @@
 		C4127E0628A7CA7C00535A9B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C4127E0928A7CA7C00535A9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C4127E0B28A7CA7C00535A9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C495C3BD28A908E0004997D4 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		C495C3BF28A9095A004997D4 /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
 		C4BEDA9228A8000500FD254A /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -61,6 +65,7 @@
 		C40C507E28A7DAB200886965 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C495C3BC28A908BD004997D4 /* Authendication */,
 				C40C508428A7F25100886965 /* MainTabController.swift */,
 				C40C508628A7F31B00886965 /* FeedController.swift */,
 				C40C508828A7F3A500886965 /* ExploreController.swift */,
@@ -130,6 +135,15 @@
 				C40C508328A7DADC00886965 /* Files */,
 			);
 			path = "Twitter-Swift";
+			sourceTree = "<group>";
+		};
+		C495C3BC28A908BD004997D4 /* Authendication */ = {
+			isa = PBXGroup;
+			children = (
+				C495C3BD28A908E0004997D4 /* LoginController.swift */,
+				C495C3BF28A9095A004997D4 /* RegistrationController.swift */,
+			);
+			path = Authendication;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,10 +217,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				C40C508B28A7F3BF00886965 /* NotificationsController.swift in Sources */,
+				C495C3C028A9095A004997D4 /* RegistrationController.swift in Sources */,
 				C4127DFE28A7CA7A00535A9B /* AppDelegate.swift in Sources */,
 				C40C508928A7F3A500886965 /* ExploreController.swift in Sources */,
 				C40C508728A7F31B00886965 /* FeedController.swift in Sources */,
 				C40C508D28A7F3EE00886965 /* ConversationsController.swift in Sources */,
+				C495C3BE28A908E0004997D4 /* LoginController.swift in Sources */,
 				C40C508528A7F25100886965 /* MainTabController.swift in Sources */,
 				C4BEDA9328A8000500FD254A /* Extensions.swift in Sources */,
 			);
