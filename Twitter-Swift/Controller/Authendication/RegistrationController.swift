@@ -9,6 +9,7 @@ import UIKit
 
 class RegistrationController: UIViewController {
     // MARK: - PROPERTIES
+    let imagePicker = UIImagePickerController()
     private let plusPhotoButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(named: "plus_photo"), for: .normal)
@@ -81,6 +82,8 @@ class RegistrationController: UIViewController {
 // MARK: - HELPERS
 extension RegistrationController{
     private func setup(){
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
         view.backgroundColor = .twitterColor
         //plusPhotoButton Setup
         view.addSubview(plusPhotoButton)
@@ -130,10 +133,22 @@ extension RegistrationController{
         navigationController?.popViewController(animated: true)
     }
     @objc func handleAddProfilePhoto(){
-        
+        present(imagePicker, animated: true)
     }
     @objc func handleRegister(){
         
+    }
+    
+}
+extension RegistrationController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        guard let image = info[.editedImage] as? UIImage else {
+            return
+        }
+        self.plusPhotoButton.setImage(image.withRenderingMode(.alwaysOriginal), for: .normal)
+        plusPhotoButton.layer.cornerRadius = 150 / 2
+        plusPhotoButton.clipsToBounds = true
+        dismiss(animated: true)
     }
     
 }
