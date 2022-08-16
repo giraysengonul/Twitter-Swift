@@ -6,10 +6,14 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseCore
+import FirebaseDatabase
 
 class RegistrationController: UIViewController {
     // MARK: - PROPERTIES
-    let imagePicker = UIImagePickerController()
+    private let imagePicker = UIImagePickerController()
+    private var profileImage: UIImage?
     private let plusPhotoButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(UIImage(named: "plus_photo"), for: .normal)
@@ -136,7 +140,26 @@ extension RegistrationController{
         present(imagePicker, animated: true)
     }
     @objc func handleRegister(){
-        
+        guard let profileImage = profileImage else { return }
+        guard let email = emailTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+        guard let fullname = fullnameTextField.text else { return }
+        guard let username = usernameTextField.text else { return }
+        print("Debug: email: \(email) , password: \(password)")
+        Auth.auth().createUser(withEmail: email, password: password) { result, error in
+            if  error != nil {
+                print("Debug: \(String(describing: error?.localizedDescription))")
+                return
+            }
+            print("Debug: Successfully registered user")
+            guard let userId = result?.user.uid else { return }
+            let values = ["email": email, "username": username,"fullname" : fullname]
+            let ref = Database.database().reference().child("users").child(userId)
+            ref.updateChildValues(values){ error , ref in
+                print("DEBUG: Successfully updated user information.")
+                
+            }
+        }
     }
     
 }
@@ -145,6 +168,7 @@ extension RegistrationController: UIImagePickerControllerDelegate, UINavigationC
         guard let image = info[.editedImage] as? UIImage else {
             return
         }
+        profileImage = image
         self.plusPhotoButton.setImage(image.withRenderingMode(.alwaysOriginal), for: .normal)
         plusPhotoButton.layer.cornerRadius = 150 / 2
         plusPhotoButton.clipsToBounds = true
