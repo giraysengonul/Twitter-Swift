@@ -7,7 +7,7 @@
 
 import FirebaseDatabase
 import FirebaseStorage
-   
+
 let STORAGE_REF = Storage.storage().reference()
 let STRORAGE_PROFILE_IMAGES = STORAGE_REF.child("profile_images")
 let DB_REF = Database.database().reference()

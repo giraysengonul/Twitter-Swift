@@ -147,26 +147,10 @@ extension RegistrationController{
         guard let fullname = fullnameTextField.text else { return }
         guard let username = usernameTextField.text else { return }
         print("Debug: email: \(email) , password: \(password)")
-        guard let imageData = profileImage.jpegData(compressionQuality: 0.3) else{return}
-        let fileName = UUID().uuidString
-        let storageRef = STRORAGE_PROFILE_IMAGES.child("\(fileName).jpg")
-        storageRef.putData(imageData,metadata: nil) { metadata, error in
-            storageRef.downloadURL { url, error in
-                guard let profileImageUrl = url?.absoluteString else {return}
-                Auth.auth().createUser(withEmail: email, password: password) { result, error in
-                    if  error != nil {
-                        print("Debug: \(String(describing: error?.localizedDescription))")
-                        return
-                    }
-                    print("Debug: Successfully registered user")
-                    guard let userId = result?.user.uid else { return }
-                    let values = ["email": email, "username": username,"fullname" : fullname, "profileImageUrl": profileImageUrl]
-                    
-                    REF_USERS.child(userId).updateChildValues(values){ error , ref in
-                        print("DEBUG: Successfully updated user information.")
-                    }
-                }
-                
+        let credentials = AuthCredentials(email: email, password: password, fullname: fullname, username: username, profileImage: profileImage)
+        AuthService.shared.registerUser(withCredential: credentials) { error, ref in
+            if error == nil{
+                print("DEBUG: Successfully updated user information.")
             }
         }
         
