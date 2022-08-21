@@ -17,6 +17,7 @@
 		C4127E0728A7CA7C00535A9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4127E0628A7CA7C00535A9B /* Assets.xcassets */; };
 		C4127E0A28A7CA7C00535A9B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4127E0828A7CA7C00535A9B /* LaunchScreen.storyboard */; };
 		C45BA3BA28ABA95100D57EB5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C45BA3B928ABA95100D57EB5 /* GoogleService-Info.plist */; };
+		C484CC8928B23D6E0085FDCD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C484CC8828B23D6E0085FDCD /* Constants.swift */; };
 		C495C3BE28A908E0004997D4 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C495C3BD28A908E0004997D4 /* LoginController.swift */; };
 		C495C3C028A9095A004997D4 /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C495C3BF28A9095A004997D4 /* RegistrationController.swift */; };
 		C495C3C228A9139A004997D4 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C495C3C128A9139A004997D4 /* Utilities.swift */; };
@@ -38,6 +39,7 @@
 		C4127E0928A7CA7C00535A9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C4127E0B28A7CA7C00535A9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C45BA3B928ABA95100D57EB5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C484CC8828B23D6E0085FDCD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C495C3BD28A908E0004997D4 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		C495C3BF28A9095A004997D4 /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
 		C495C3C128A9139A004997D4 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
@@ -70,7 +72,6 @@
 				01D4F9B4A3B80E0F22DA7F54 /* Pods-Twitter-Swift.debug.xcconfig */,
 				031433EA3AA2F878192EDD24 /* Pods-Twitter-Swift.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -79,6 +80,7 @@
 			children = (
 				C4BEDA9228A8000500FD254A /* Extensions.swift */,
 				C495C3C128A9139A004997D4 /* Utilities.swift */,
+				C484CC8828B23D6E0085FDCD /* Constants.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -298,6 +300,7 @@
 				C40C508928A7F3A500886965 /* ExploreController.swift in Sources */,
 				C40C508728A7F31B00886965 /* FeedController.swift in Sources */,
 				C40C508D28A7F3EE00886965 /* ConversationsController.swift in Sources */,
+				C484CC8928B23D6E0085FDCD /* Constants.swift in Sources */,
 				C495C3BE28A908E0004997D4 /* LoginController.swift in Sources */,
 				C40C508528A7F25100886965 /* MainTabController.swift in Sources */,
 				C495C3C228A9139A004997D4 /* Utilities.swift in Sources */,

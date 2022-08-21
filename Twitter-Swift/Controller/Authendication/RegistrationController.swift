@@ -10,6 +10,7 @@ import FirebaseAuth
 import FirebaseCore
 import FirebaseDatabase
 
+
 class RegistrationController: UIViewController {
     // MARK: - PROPERTIES
     private let imagePicker = UIImagePickerController()
@@ -32,12 +33,12 @@ class RegistrationController: UIViewController {
         return view
     }()
     private lazy var fullnameContainerView : UIView = {
-        let image = #imageLiteral(resourceName: "ic_mail_outline_white_2x-1")
+        let image = #imageLiteral(resourceName: "ic_person_outline_white_2x")
         let view = Utilities().inputContainerView(with: image,textField: fullnameTextField)
         return view
     }()
     private lazy var usernameContainerView : UIView = {
-        let image = #imageLiteral(resourceName: "ic_lock_outline_white_2x")
+        let image = #imageLiteral(resourceName: "ic_person_outline_white_2x")
         let view = Utilities().inputContainerView(with: image,textField: usernameTextField)
         return view
     }()
@@ -50,11 +51,11 @@ class RegistrationController: UIViewController {
         return textField
     }()
     private let fullnameTextField: UITextField = {
-        let textField = Utilities().textField(withPlaceholder: "Email", withSecurity: false)
+        let textField = Utilities().textField(withPlaceholder: "Fullname", withSecurity: false)
         return textField
     }()
     private let usernameTextField: UITextField = {
-        let textField = Utilities().textField(withPlaceholder: "Password", withSecurity: false)
+        let textField = Utilities().textField(withPlaceholder: "Username", withSecurity: false)
         return textField
     }()
     private let alreadyHaveAccountButton : UIButton = {
@@ -146,23 +147,33 @@ extension RegistrationController{
         guard let fullname = fullnameTextField.text else { return }
         guard let username = usernameTextField.text else { return }
         print("Debug: email: \(email) , password: \(password)")
-        Auth.auth().createUser(withEmail: email, password: password) { result, error in
-            if  error != nil {
-                print("Debug: \(String(describing: error?.localizedDescription))")
-                return
-            }
-            print("Debug: Successfully registered user")
-            guard let userId = result?.user.uid else { return }
-            let values = ["email": email, "username": username,"fullname" : fullname]
-            let ref = Database.database().reference().child("users").child(userId)
-            ref.updateChildValues(values){ error , ref in
-                print("DEBUG: Successfully updated user information.")
+        guard let imageData = profileImage.jpegData(compressionQuality: 0.3) else{return}
+        let fileName = UUID().uuidString
+        let storageRef = STRORAGE_PROFILE_IMAGES.child("\(fileName).jpg")
+        storageRef.putData(imageData,metadata: nil) { metadata, error in
+            storageRef.downloadURL { url, error in
+                guard let profileImageUrl = url?.absoluteString else {return}
+                Auth.auth().createUser(withEmail: email, password: password) { result, error in
+                    if  error != nil {
+                        print("Debug: \(String(describing: error?.localizedDescription))")
+                        return
+                    }
+                    print("Debug: Successfully registered user")
+                    guard let userId = result?.user.uid else { return }
+                    let values = ["email": email, "username": username,"fullname" : fullname, "profileImageUrl": profileImageUrl]
+                    
+                    REF_USERS.child(userId).updateChildValues(values){ error , ref in
+                        print("DEBUG: Successfully updated user information.")
+                    }
+                }
                 
             }
         }
+        
     }
-    
 }
+
+
 extension RegistrationController: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let image = info[.editedImage] as? UIImage else {
