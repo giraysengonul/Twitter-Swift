@@ -107,7 +107,23 @@ extension LoginController{
 // MARK: - ACTIONS
 extension LoginController{
     @objc func handleLogin(){
-        print("login")
+        guard let email = emailTextField.text else { return }
+        guard let password = passwordTextField.text else{ return }
+        AuthService.shared.logUserIn(withEmail: email, withPassword: password) { ref, error in
+            if let error = error{
+                print(error.localizedDescription)
+            }
+            else{
+                
+                guard let window = UIApplication.shared.windows.first(where: {$0.isKeyWindow})else{return}
+                guard let tab = UIApplication.shared.keyWindow?.window as? MainTabController else{ return }
+                tab.authenticateUserAndConfigureUI()
+                self.dismiss(animated: true)
+            }
+            
+        }
+        
+        
     }
     @objc func handleShowSignUp(){
         let controller = RegistrationController()

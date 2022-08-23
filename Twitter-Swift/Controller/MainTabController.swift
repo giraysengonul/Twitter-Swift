@@ -23,7 +23,15 @@ class MainTabController: UITabBarController {
     // MARK: - LIFECYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
+        setup()
+        layout()
         authenticateUserAndConfigureUI()
+        view.backgroundColor = .twitterColor
+//        do{
+//            try Auth.auth().signOut()
+//        }catch{
+//
+//        }
         view.backgroundColor = .white
         view.addSubview(actionButton)
         actionButton.translatesAutoresizingMaskIntoConstraints = false
