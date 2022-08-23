@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import FirebaseAuth
 class MainTabController: UITabBarController {
     // MARK: - PROPERTIES
     let actionButton: UIButton = {
@@ -23,14 +23,14 @@ class MainTabController: UITabBarController {
     // MARK: - LIFECYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
-        setup()
-        layout()
+        authenticateUserAndConfigureUI()
         view.backgroundColor = .white
         view.addSubview(actionButton)
         actionButton.translatesAutoresizingMaskIntoConstraints = false
     }
     
 }
+// MARK: - Helpers
 extension MainTabController{
     private func setup(){
         let feed = templateNavigationController(image: UIImage(named: "home_unselected")!, rootViewController: FeedController())
@@ -79,8 +79,24 @@ extension MainTabController{
         
         
     }
+}
+// MARK: - Action
+extension MainTabController{
     @objc func handleActionTapped()  {
         print("Action Button")
     }
     
+    // MARK: - API
+    func authenticateUserAndConfigureUI(){
+        if Auth.auth().currentUser == nil{
+            DispatchQueue.main.async {
+                let nav = UINavigationController(rootViewController: LoginController())
+                nav.modalPresentationStyle = .fullScreen
+                self.present(nav, animated: true)
+            }
+        }else{
+            setup()
+            layout()
+        }
+    }
 }
