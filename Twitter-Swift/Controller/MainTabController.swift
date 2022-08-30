@@ -29,6 +29,7 @@ class MainTabController: UITabBarController {
         view.backgroundColor = .twitterColor
 //        do{
 //            try Auth.auth().signOut()
+//            authenticateUserAndConfigureUI()
 //        }catch{
 //
 //        }

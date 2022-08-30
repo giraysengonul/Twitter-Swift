@@ -114,9 +114,9 @@ extension LoginController{
                 print(error.localizedDescription)
             }
             else{
-                
-                guard let window = UIApplication.shared.windows.first(where: {$0.isKeyWindow})else{return}
-                guard let tab = UIApplication.shared.keyWindow?.window as? MainTabController else{ return }
+
+                guard let window = UIApplication.shared.windows.first(where: {$0.isKeyWindow}) else{return}
+                guard let tab = window.rootViewController as? MainTabController else{ return }
                 tab.authenticateUserAndConfigureUI()
                 self.dismiss(animated: true)
             }
