@@ -94,7 +94,7 @@ extension MainTabController{
         print("Action Button")
     }
     
-// MARK: - API
+    // MARK: - API
     func authenticateUserAndConfigureUI(){
         if Auth.auth().currentUser == nil{
             DispatchQueue.main.async {
