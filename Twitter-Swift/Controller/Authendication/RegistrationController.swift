@@ -152,6 +152,7 @@ extension RegistrationController{
             if error == nil{
                 print("DEBUG: Successfully updated user information.")
             }
+            self.dismiss(animated: true)
         }
         
     }

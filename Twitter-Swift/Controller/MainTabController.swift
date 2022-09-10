@@ -27,12 +27,12 @@ class MainTabController: UITabBarController {
         layout()
         authenticateUserAndConfigureUI()
         view.backgroundColor = .twitterColor
-//        do{
-//            try Auth.auth().signOut()
-//            authenticateUserAndConfigureUI()
-//        }catch{
-//
-//        }
+        //        do{
+        //            try Auth.auth().signOut()
+        //            authenticateUserAndConfigureUI()
+        //        }catch{
+        //
+        //        }
         view.backgroundColor = .white
         view.addSubview(actionButton)
         actionButton.translatesAutoresizingMaskIntoConstraints = false
@@ -55,6 +55,7 @@ extension MainTabController{
         view.addSubview(actionButton)
         actionButton.translatesAutoresizingMaskIntoConstraints = false
         actionButton.layer.cornerRadius = 56 / 2
+        
     }
     
     func templateNavigationController(image: UIImage, rootViewController: UIViewController)-> UINavigationController{
@@ -85,8 +86,6 @@ extension MainTabController{
             actionButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16)
             
         ])
-        
-        
     }
 }
 // MARK: - Action
@@ -95,7 +94,7 @@ extension MainTabController{
         print("Action Button")
     }
     
-    // MARK: - API
+// MARK: - API
     func authenticateUserAndConfigureUI(){
         if Auth.auth().currentUser == nil{
             DispatchQueue.main.async {
@@ -106,6 +105,10 @@ extension MainTabController{
         }else{
             setup()
             layout()
+            fetchUser()
         }
+    }
+    func fetchUser() {
+        UserService.fetchUser()
     }
 }
