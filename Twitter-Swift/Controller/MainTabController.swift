@@ -9,7 +9,14 @@ import UIKit
 import FirebaseAuth
 class MainTabController: UITabBarController {
     // MARK: - PROPERTIES
-    let actionButton: UIButton = {
+    var user: User? {
+        didSet{
+            guard let nav = viewControllers?[0] as? UINavigationController else{ return }
+            guard let feed = nav.viewControllers.first as? FeedController else{ return }
+            feed.user = user
+        }
+    }
+    lazy var actionButton: UIButton = {
         let button = UIButton(type: .system)
         button.tintColor = .white
         button.backgroundColor = .twitterColor
@@ -109,6 +116,8 @@ extension MainTabController{
         }
     }
     func fetchUser() {
-        UserService.fetchUser()
+        UserService.fetchUser { user in
+            self.user = user
+        }
     }
 }

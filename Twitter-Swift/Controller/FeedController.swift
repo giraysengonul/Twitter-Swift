@@ -6,10 +6,21 @@
 //
 
 import UIKit
+import SDWebImage
 
 class FeedController: UIViewController {
     // MARK: - PROPERTIES
-    
+    var user: User? {
+        didSet {
+            configureLeftBarButton()
+        }
+    }
+    private let profileImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.layer.cornerRadius = 32 / 2
+        imageView.clipsToBounds = true
+        return imageView
+    }()
     
     // MARK: - LIFECYCLE
     override func viewDidLoad() {
@@ -28,5 +39,17 @@ extension FeedController{
     }
     private func layout(){
         
+    }
+    private func configureLeftBarButton(){
+        //profileImageView Style
+        guard let user = user else { return }
+        profileImageView.sd_setImage(with: user.profileImageUrl)
+        profileImageView.translatesAutoresizingMaskIntoConstraints = false
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: profileImageView)
+        //profileImageView Layout
+        NSLayoutConstraint.activate([
+            profileImageView.heightAnchor.constraint(equalToConstant: 32),
+            profileImageView.widthAnchor.constraint(equalToConstant: 32),
+        ])
     }
 }
