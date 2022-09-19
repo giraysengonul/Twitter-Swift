@@ -34,6 +34,9 @@ extension FeedController{
     private func setup(){
         let imageView = UIImageView(image: UIImage(named: "twitter_logo_blue"))
         imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.heightAnchor.constraint(equalToConstant: 44).isActive = true
+        imageView.widthAnchor.constraint(equalToConstant: 44).isActive = true
         navigationItem.titleView = imageView
         
     }

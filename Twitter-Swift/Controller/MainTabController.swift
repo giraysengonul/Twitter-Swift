@@ -98,7 +98,9 @@ extension MainTabController{
 // MARK: - Action
 extension MainTabController{
     @objc func handleActionTapped()  {
-        print("Action Button")
+        let controller = UINavigationController(rootViewController: UploadTweetController())
+        controller.modalPresentationStyle = .fullScreen
+        present(controller, animated: true)
     }
     
     // MARK: - API
