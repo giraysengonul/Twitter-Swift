@@ -28,6 +28,8 @@ class UploadTweetController: UIViewController {
         imageView.layer.cornerRadius = 48 / 2
         return imageView
     }()
+    private let stackView = UIStackView()
+    private let captionTextView = CaptionTextView()
     // MARK: - Lifecycle
     init(user: User) {
         self.user = user
@@ -48,18 +50,30 @@ extension UploadTweetController{
     private func style(){
         view.backgroundColor = .white
         configureNavigation()
+        //StackView Style
+        stackView.axis = .horizontal
+        stackView.spacing = 12
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(stackView)
         //profileImageView Style
         profileImageView.translatesAutoresizingMaskIntoConstraints = false
         profileImageView.sd_setImage(with: user.profileImageUrl)
-        view.addSubview(profileImageView)
+        stackView.addArrangedSubview(profileImageView)
+        //captionTextView Style
+        captionTextView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.addArrangedSubview(captionTextView)
     }
     private func layout(){
         //profileImageView Layout
         NSLayoutConstraint.activate([
             profileImageView.heightAnchor.constraint(equalToConstant: 48),
             profileImageView.widthAnchor.constraint(equalToConstant: 48),
-            profileImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
-            profileImageView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16)
+        ])
+        //captionTextView Layout
+        NSLayoutConstraint.activate([
+            stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
+            stackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 16)
         ])
     }
 }
