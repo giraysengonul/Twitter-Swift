@@ -27,6 +27,7 @@
 		C4AD42B528B24E1900F0AC44 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4AD42B428B24E1900F0AC44 /* AuthService.swift */; };
 		C4B01AA228D83A110014C4A9 /* UploadTweetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B01AA128D83A110014C4A9 /* UploadTweetController.swift */; };
 		C4BEDA9328A8000500FD254A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BEDA9228A8000500FD254A /* Extensions.swift */; };
+		C4F1503C28EC55790089BC64 /* TweetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F1503B28EC55790089BC64 /* TweetService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		C4AD42B428B24E1900F0AC44 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		C4B01AA128D83A110014C4A9 /* UploadTweetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadTweetController.swift; sourceTree = "<group>"; };
 		C4BEDA9228A8000500FD254A /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		C4F1503B28EC55790089BC64 /* TweetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 			children = (
 				C4AD42B428B24E1900F0AC44 /* AuthService.swift */,
 				C43D548328C522DC00685ECA /* UserService.swift */,
+				C4F1503B28EC55790089BC64 /* TweetService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 				C4127DFE28A7CA7A00535A9B /* AppDelegate.swift in Sources */,
 				C4AD42B528B24E1900F0AC44 /* AuthService.swift in Sources */,
 				C40C508928A7F3A500886965 /* ExploreController.swift in Sources */,
+				C4F1503C28EC55790089BC64 /* TweetService.swift in Sources */,
 				C40C508728A7F31B00886965 /* FeedController.swift in Sources */,
 				C44C675328CC5F610090C310 /* User.swift in Sources */,
 				C43D548428C522DC00685ECA /* UserService.swift in Sources */,

@@ -94,6 +94,13 @@ extension UploadTweetController{
         dismiss(animated: true)
     }
     @objc func handleUploadTweet(_ sender: UIButton){
-        
+        guard let caption = captionTextView.text else { return }
+        TweetService.shared.uploadTweet(caption: caption) { error, ref in
+            if let error = error {
+                print("Failed to upload tweet width error : \(error.localizedDescription)")
+                return
+            }
+            self.dismiss(animated: true)
+        }
     }
 }
