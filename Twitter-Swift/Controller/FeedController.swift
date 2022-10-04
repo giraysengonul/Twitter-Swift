@@ -28,6 +28,15 @@ class FeedController: UIViewController {
         super.viewDidLoad()
         setup()
         layout()
+        fetchTweet()
+    }
+}
+ // MARK: - API
+extension FeedController{
+    func fetchTweet() {
+        TweetService.shared.fetchTweets { tweets in
+            print(tweets)
+        }
     }
 }
 // MARK: - HELPERS
