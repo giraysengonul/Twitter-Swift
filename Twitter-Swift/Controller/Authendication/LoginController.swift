@@ -34,7 +34,7 @@ class LoginController: UIViewController {
         let textField = Utilities().textField(withPlaceholder: "Password", withSecurity: true)
         return textField
     }()
-    private let loginButton :UIButton = {
+    private lazy var loginButton :UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Log In", for: .normal)
         button.setTitleColor(UIColor.twitterColor, for: .normal)
@@ -47,7 +47,7 @@ class LoginController: UIViewController {
         button.heightAnchor.constraint(equalToConstant: 50).isActive = true
         return button
     }()
-    private let dontHaveAccountButton : UIButton = {
+    private lazy var dontHaveAccountButton : UIButton = {
         let button = Utilities().attributedButton("Don't have an account", " Sign Up")
         button.addTarget(self, action: #selector(handleShowSignUp), for: .touchUpInside)
         return button

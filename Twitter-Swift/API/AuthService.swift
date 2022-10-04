@@ -28,7 +28,7 @@ struct AuthService {
         let password = credentials.password
         let username = credentials.username
         let fullname = credentials.fullname
-        guard let imageData = credentials.profileImage.jpegData(compressionQuality: 0.3) else{return}
+        guard let imageData = credentials.profileImage.jpegData(compressionQuality: 0.7) else{return}
         let fileName = UUID().uuidString
         let storageRef = STRORAGE_PROFILE_IMAGES.child("\(fileName).jpg")
         storageRef.putData(imageData,metadata: nil) { metadata, error in
