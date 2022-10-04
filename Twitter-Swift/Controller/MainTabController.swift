@@ -49,7 +49,7 @@ class MainTabController: UITabBarController {
 // MARK: - Helpers
 extension MainTabController{
     private func setup(){
-        let feed = templateNavigationController(image: UIImage(named: "home_unselected")!, rootViewController: FeedController())
+        let feed = templateNavigationController(image: UIImage(named: "home_unselected")!, rootViewController: FeedController(collectionViewLayout: UICollectionViewFlowLayout()))
         
         let explore = templateNavigationController(image: UIImage(named: "search_unselected")!, rootViewController: ExploreController())
         
