@@ -8,10 +8,13 @@
 import UIKit
 class TweetCell: UICollectionViewCell {
     // MARK: - Properties
+    var tweet: Tweet? {
+        didSet{ configure() }
+    }
     private let profileImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = .twitterColor
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         imageView.layer.cornerRadius = 48 / 2
         imageView.clipsToBounds = true
         imageView.heightAnchor.constraint(equalToConstant: 48).isActive = true
@@ -143,6 +146,12 @@ extension TweetCell{
             actionStackView.centerXAnchor.constraint(equalTo: centerXAnchor),
             bottomAnchor.constraint(equalTo: actionStackView.bottomAnchor, constant: 8)
         ])
+    }
+    private func configure(){
+        guard let tweet = tweet else{ return }
+        captionLabel.text = tweet.caption
+        profileImageView.sd_setImage(with: tweet.user.profileImageUrl)
+        infoLabel.text = tweet.user.username
     }
 }
 // MARK: - Selectors
