@@ -14,23 +14,20 @@ class ProfileController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         style()
-        layout()
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = true
         collectionView.contentInsetAdjustmentBehavior = .never
+        navigationController?.navigationBar.barStyle = .black
     }
 }
 // MARK: - Helpers
 extension ProfileController{
     private func style(){
-        collectionView.backgroundColor = .red
         collectionView.register(TweetCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         collectionView.register(ProfileHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerIdentifier)
-    }
-    private func layout(){
-        
     }
 }
 // MARK: - UICollectionViewDelegate/DataSource

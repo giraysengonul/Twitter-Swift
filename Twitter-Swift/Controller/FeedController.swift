@@ -33,7 +33,6 @@ class FeedController: UICollectionViewController {
         layout()
         fetchTweet()
     }
-    
 }
 // MARK: - API
 extension FeedController{
