@@ -8,6 +8,7 @@
 import UIKit
 class ProfileHeader: UICollectionReusableView {
     // MARK: - Properties
+    private let filterBar = ProfileFilterView()
     private lazy var containerView: UIView = {
         let view = UIView()
         view.backgroundColor = .twitterColor
@@ -99,6 +100,9 @@ extension ProfileHeader{
         userDetailStack.distribution = .fillProportionally
         userDetailStack.spacing = 4
         addSubview(userDetailStack)
+        //filterBar style
+        filterBar.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(filterBar)
     }
     private func layout(){
         //containerView layout
@@ -127,6 +131,13 @@ extension ProfileHeader{
             userDetailStack.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 8),
             userDetailStack.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
             trailingAnchor.constraint(equalTo: userDetailStack.trailingAnchor, constant: 12)
+        ])
+        //filterBar layout
+        NSLayoutConstraint.activate([
+            filterBar.leadingAnchor.constraint(equalTo: leadingAnchor),
+            filterBar.heightAnchor.constraint(equalToConstant: 50),
+            trailingAnchor.constraint(equalTo: filterBar.trailingAnchor),
+            bottomAnchor.constraint(equalTo: filterBar.bottomAnchor)
         ])
     }
 }
